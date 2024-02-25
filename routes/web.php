@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/', function() {
 //     return 'shit';
@@ -50,4 +50,8 @@ Route::get('/test4', function () {
     );
 
     return response()->download($path, $name, $headers);
+});
+
+Route::get('/', function () {
+    return view('test', ['amira' => "gwapa"]);
 });
