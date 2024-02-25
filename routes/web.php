@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'shit';
+    return view('welcome');
 });
 
 // Route::get('/', function() {
@@ -27,10 +28,6 @@ Route::get('/', function () {
 
 // Route::view('/', 'welcome');
 
-if(Route::get("/") == 'shit'){
-    Route::redirect('/test2', function() {
-        return "ohh";
-    });
-} 
-
-Route::redirect('/test', '/');
+Route::get('/test', function (Request $request) {
+    dd($request);
+});
