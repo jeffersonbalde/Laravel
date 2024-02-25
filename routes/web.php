@@ -31,3 +31,23 @@ Route::get('/', function () {
 Route::get('/test', function (Request $request) {
     dd($request);
 });
+
+Route::get('test2', function () {
+    return response('<h1>test2</h1>', 200)
+        ->header('Content-Type', 'text/html')
+        ->header('jeff', 'jefferson');
+});
+
+Route::get('test3/{id}', function ($id) {
+    return response($id . ' ' . ' php', 200);
+});
+
+Route::get('/test4', function () {
+    $path = public_path().'/sample.txt';
+    $name = "test.txt";
+    $headers = array(
+        'Content-type : application/text-plain'
+    );
+
+    return response()->download($path, $name, $headers);
+});
